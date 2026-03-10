@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+/* import { useEffect } from 'react'; */
 import { useAuthStore } from '../store/auth.store';
 export const LoginPage = () => {
 
@@ -7,12 +7,13 @@ export const LoginPage = () => {
     const logout = useAuthStore(state => state.logout);
     const user = useAuthStore(state => state.user);
 
+/*
     useEffect(() => {
         setTimeout(() => {
             logout();
-        }, 1500);
+        }, 15000);
     }, [])
-
+ */
 
 
     if(authStatus === 'checking'){

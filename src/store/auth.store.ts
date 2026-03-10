@@ -17,16 +17,23 @@ export const useAuthStore = create<AuthState>((set) => ({
     user: undefined,
 
     login: (email: string, password: string) => {
+    set({ 
+        status: 'checking',
+        token: undefined,
+        user: undefined,
+    });
+
+    setTimeout(() => {
         set({ 
-            status: 'checking',
+            status: 'authenticated',
             token: '12345',
             user: {
                 name: 'Capibara comprobadora',
                 email: email,
             }
-
-         });
-        },
+        });
+    }, 500);
+},
 
     logout: () => {
         set({ 
