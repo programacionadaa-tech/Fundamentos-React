@@ -2,7 +2,7 @@ import './App.css'
 import { BasicTypes } from './typescript/BasicTypes'
 import { ObjectLiterals } from './typescript'
 import { BasicFunctions } from './typescript/BasicFunctions'
-import { Counter, CounterWithHook } from './components'
+import { Counter, CounterWithHook, UserPage } from './components'
 import { LoginPage } from './components/LoginPage'
 
 function App() {
@@ -15,7 +15,8 @@ function App() {
       {/* <BasicFunctions /> */}
       {/* <Counter /> */}
       {/* <CounterWithHook /> */}
-      <LoginPage />
+      {/* <LoginPage /> */}
+      <UserPage />
     </main>
   )
 }

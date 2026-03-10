@@ -12,28 +12,28 @@ interface AuthState{
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
-    status: 'checking',
+    status: 'unauthenticated',  
     token: undefined,
     user: undefined,
 
-    login: (email: string, password: string) => {
-    set({ 
-        status: 'checking',
-        token: undefined,
-        user: undefined,
-    });
-
-    setTimeout(() => {
+    login: (email: string, _password: string) => {  
         set({ 
-            status: 'authenticated',
-            token: '12345',
-            user: {
-                name: 'Capibara comprobadora',
-                email: email,
-            }
+            status: 'checking',
+            token: undefined,
+            user: undefined,
         });
-    }, 500);
-},
+
+        setTimeout(() => {
+            set({ 
+                status: 'authenticated',
+                token: '12345',
+                user: {
+                    name: 'Capibara comprobadora',
+                    email: email,
+                }
+            });
+        }, 500);
+    },
 
     logout: () => {
         set({ 
@@ -42,6 +42,4 @@ export const useAuthStore = create<AuthState>((set) => ({
             user: undefined 
         });
     },
-
-
 }))
