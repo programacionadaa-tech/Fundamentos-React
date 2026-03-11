@@ -1,33 +1,8 @@
-import { useEffect, useState } from "react"
-import axios from "axios";
-import type { ReqResUserList } from "../interfaces";
-
-interface User {
-    id: number;
-    email: string;
-    first_name: string;
-    last_name: string;
-    avatar: string;
-}
+import { useUsers } from "../hooks/useUsers";
 
 export const UserPage = () => {
     
-    const [users, setUsers] = useState<User[]>([]);
-
-    useEffect(() => {
-        axios.get<ReqResUserList>('https://reqres.in/api/users?page=2', {
-            headers: {
-                'x-api-key': 'pub_44baf7989c10e6e8f149fecb47b6535e7d9c2a4358e1a81c3a41bdb7e7ff2d81'
-            }
-        })
-        .then(resp => setUsers(resp.data.articles.map((article, index) => ({
-            id: index,
-            email: article.url,
-            first_name: article.title,
-            last_name: article.description,
-            avatar: article.urlToImage
-        }))))
-    }, [])
+    const {users, nextPage, prevPage} = useUsers();
 
     /*useEffect(() => {
         fetch('https://reqres.in/api/users?page=2', {
@@ -60,6 +35,10 @@ export const UserPage = () => {
                     ))}
                 </tbody>
             </table>
+            <div>
+                <button onClick={prevPage}>Prev</button>
+                <button onClick={nextPage}>Next</button>
+            </div>
         </>
     )
 }
