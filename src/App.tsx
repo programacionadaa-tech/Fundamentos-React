@@ -4,6 +4,7 @@ import { ObjectLiterals } from './typescript'
 import { BasicFunctions } from './typescript/BasicFunctions'
 import { Counter, CounterWithHook, UserPage } from './components'
 import { LoginPage } from './components/LoginPage'
+import {FormsPage} from './components/FormsPage';
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
       {/* <Counter /> */}
       {/* <CounterWithHook /> */}
       {/* <LoginPage /> */}
-      <UserPage />
+      {/*<UserPage />*/}
+      <FormsPage/>
     </main>
   )
 }
